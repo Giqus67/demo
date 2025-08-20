@@ -1,10 +1,13 @@
 class Main{
     public static void main(String[] args){
-        System.out.println("hello world!");
-        calcSum(1, 2, 3, 4, 5);
-        calcSum(5, 12, 7, 17, 5);
+        random();
     }
     
+    public static void random(){
+        calcSum( (int) (Math.random() * 100), (int) (Math.random() * 100), (int) (Math.random() * 100));
+        calcSum( (int) (Math.random() * 100), (int) (Math.random() * 100), (int) (Math.random() * 100), (int) (Math.random() * 100));
+    }
+
     public static void calcSum(int ...arg){
         int[] array = arg;
         int sum = 0;
