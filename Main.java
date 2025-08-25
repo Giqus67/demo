@@ -1,7 +1,14 @@
+import java.util.Scanner;
+
 class Main{
+    static int totalSum = 0;
     public static void main(String[] args){
         System.out.println("This application will generate random integer number and sum them!");
-        random();
+        boolean loop = true;
+        while (loop) {
+             random();
+             loop = continueLoop();
+        }
     }
     public static void random(){
        int first = calcSum( (int) (Math.random() * 100), (int) (Math.random() * 100), (int) (Math.random() * 100));
@@ -16,6 +23,7 @@ class Main{
         for(int i : array){
             sum += i;
         }
+        totalSum += sum;
         return sum;
     }
 
@@ -23,6 +31,16 @@ class Main{
         int[] array = sums;
         for(int i = 0; i < array.length; i++){
             System.out.println(i + 1 + " sum: " + array[i]);
+            System.out.println("Total sum: " + totalSum);
         }
+    }
+    public static boolean continueLoop(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Do you want to continue?");
+        String line = scanner.nextLine();
+        if(line.equalsIgnoreCase("yes")){
+            return true;
+        }
+        return false;
     }
 }
